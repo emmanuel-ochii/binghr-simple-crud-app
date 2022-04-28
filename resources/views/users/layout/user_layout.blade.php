@@ -400,7 +400,7 @@ control > ::placeholder{
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="is-submenu">
+                        <a href="{{route('user.index')}}" class="is-submenu">
                             <i class="lnir lnir-users"></i>
                             <span class="ml-2">Users</span>
                         </a>
@@ -784,47 +784,7 @@ control > ::placeholder{
 
         <!-- Additional Features -->
         <script src="js/touch.js" async></script>
-
-        <!-- Landing page js -->
-
-        <!-- Dashboards js -->
-
-
-
-
-
-
-
-
-
-
-        <script src="{{asset('js/banking-1.js')}}" async></script>
-
-
-
-
-
-
-
-        <!-- Charts js -->
-
-
-
-        <!--Forms-->
-
-        <!--Wizard-->
-
-        <!-- Layouts js -->
-
-
-
-
-
-
-
-
-
-
+        @stack('scripts')
 
         <script src="{{asset('js/syntax.js')}}" async></script>
     </div>
