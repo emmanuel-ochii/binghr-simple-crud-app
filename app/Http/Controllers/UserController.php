@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserCrud;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -32,7 +35,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.user');
     }
 
     /**
@@ -43,7 +46,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'employee_id' => 'required|integer|max:120',
+            'first_name' => 'required|string|max:122',
+            'last_name' => 'required|string|max:122',
+            'email_id' => 'required|string|unique:user_cruds',
+            'mobile_no' => 'required|string|max:25',
+            'role_type' => 'required',
+            'username' => 'required|string|max:122',
+            'password' => 'required|string|min:8|max:122|confirmed',
+            'permission' => 'required',
+        ]);
+        $input = $request->all();
+        $input['permission'] = $request->input('permission');
+        UserCrud::create($input);
+        return redirect()->route('user.index')->with('success', 'User added successfully.');
     }
 
     /**
