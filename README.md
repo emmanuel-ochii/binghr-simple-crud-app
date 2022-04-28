@@ -1,10 +1,10 @@
-# Task Manager
+# BingHr Basic Crud App
 
 
-This is a simple task manager application coded with Laravel
+This is a simple task manager application developed with Laravel
 
-- Laravel 
-- MySql
+- Laravel 8
+- MySql 5+
 - HTML,CSS & JavaScript
 
 ## Features
