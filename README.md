@@ -1,4 +1,4 @@
-# BingHr Basic Crud App
+# BingHR Basic Crud App
 
 
 This is a simple task manager application developed with Laravel
@@ -13,11 +13,12 @@ This is a simple task manager application developed with Laravel
 - Edit task
 - Delete task
 - Sweet Alert notification
+- Dark and Light mode 
 
 ## Installation
 
 - Make sure you use PHP version 7+
-- Setup databse with phpmyadmin e.g taskmanger
+- Setup database with phpmyadmin e.g binghr_db
 - Edit .env file 
 
 
@@ -60,4 +61,4 @@ Instructions on how to use them in your own application are linked below.
 
 **Designed By Emmanuel Ochubili**
 
-# binghr-simple-crud-app
+# BingHR-simple-crud-app

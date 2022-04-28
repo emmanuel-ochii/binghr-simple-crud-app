@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function dashboard()
     {
-        return view('users.layout.user_layout');
+        return view('users.dashboard');
     }
     /**
      * Display a listing of the resource.
@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('users.user');
     }
 
     /**

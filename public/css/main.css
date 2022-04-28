@@ -23628,7 +23628,7 @@ body.is-dark
 .main-sidebar .sidebar-inner .icon-menu li a.is-selected .sidebar-svg,
 .main-sidebar .sidebar-inner .bottom-menu li a:hover .sidebar-svg,
 .main-sidebar .sidebar-inner .bottom-menu li a.is-selected .sidebar-svg {
-    stroke: #671cc9;
+    stroke: #ffffff;
 }
 .main-sidebar .sidebar-inner .icon-menu li a .sidebar-svg,
 .main-sidebar .sidebar-inner .bottom-menu li a .sidebar-svg {
