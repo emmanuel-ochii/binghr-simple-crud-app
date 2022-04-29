@@ -1,5 +1,6 @@
 # BingHR Basic Crud App
 
+![Alt text](/public/img/avatars/placeholder.jpg?raw=true "Optional Title")
 
 This is a simple task manager application developed with Laravel
 
