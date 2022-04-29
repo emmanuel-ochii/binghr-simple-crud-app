@@ -176,11 +176,11 @@ function updatePost(form_data) {
 
 // ---------- [ Delete post ] ----------------
 function deletePost(user_id) {
-    var status = confirm("Do you want to delete this post?");
+    var status = confirm("Do you want to delete this user?");
     if (status == true) {
         $.ajax({
             url: "user/" + user_id,
-            method: "DELETE",
+            method: "delete",
             dataType: "json",
 
             success: function (res) {

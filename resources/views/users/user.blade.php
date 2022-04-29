@@ -206,20 +206,20 @@
                                                                 <td> Admin</td>
                                                                 <td>
                                                                     <div class="control">
-                                                                        <input type="checkbox"  name="permission_admin[]"
-                                                                        id="permission_admin[]" value="read">
+                                                                        <input type="checkbox" name="permission_admin[]"
+                                                                            id="permission_admin[]" value="read">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
                                                                         <input type="checkbox" name="permission_admin[]"
-                                                                        id="permission_admin[]" value="write">
+                                                                            id="permission_admin[]" value="write">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
                                                                         <input type="checkbox" name="permission_admin[]"
-                                                                        id="permission_admin[]" value="delete">
+                                                                            id="permission_admin[]" value="delete">
                                                                     </div>
                                                                 </td>
                                                             </div>
@@ -231,19 +231,19 @@
                                                                 <td>
                                                                     <div class="control">
                                                                         <input type="checkbox" name="permission_employee[]"
-                                                                        id="permission_employee[]" value="read">
+                                                                            id="permission_employee[]" value="read">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
                                                                         <input type="checkbox" name="permission_employee[]"
-                                                                        id="permission_employee[]" value="write">
+                                                                            id="permission_employee[]" value="write">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
                                                                         <input type="checkbox" name="permission_employee[]"
-                                                                        id="permission_employee[]" value="delete">
+                                                                            id="permission_employee[]" value="delete">
                                                                     </div>
                                                                 </td>
                                                             </div>
@@ -255,19 +255,19 @@
                                                                 <td>
                                                                     <div class="control">
                                                                         <input type="checkbox" name="permission_hr[]"
-                                                                        id="permission_hr[]" value="read">
+                                                                            id="permission_hr[]" value="read">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
                                                                         <input type="checkbox" name="permission_hr[]"
-                                                                        id="permission_hr[]" value="write">
+                                                                            id="permission_hr[]" value="write">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
                                                                         <input type="checkbox" name="permission_hr[]"
-                                                                        id="permission_hr[]" value="delete">
+                                                                            id="permission_hr[]" value="delete">
                                                                     </div>
                                                                 </td>
                                                             </div>
@@ -353,21 +353,33 @@
                                 <td>{{ $user->created_at->format('d M, Y') }}</td>
                                 <td>{{ $user->role_type }}</td>
                                 <td>
-                                    <button type="button" class="button h-button h-modal-trigger" style="border: 0"
-                                        data-modal="edit-user-form-modal" value="{{ $user->id }}">
+                                    {{-- <a href="javascript:void(0);" type="button" class="button h-button h-modal-trigger"
+                                        style="border: 0" data-modal="add-user-form-modal" value="{{ $user->id }}">
                                         <span class="icon">
                                             <i data-feather="edit-3"></i>
                                         </span>
-                                    </button>
+                                    </a> --}}
 
-                                    {{-- <a href="javascript:void(0);" data-toggle="modal" data-target="#addPostModal" data-id="{{$user->id}}" data-title="{{$user->employee_id}}" data-description="{{$user->first_name}}" data-action="view" class="btn btn-info btn-sm"> View </a> --}}
+                                    <a href="javascript:void(0);" class="button h-button h-modal-trigger" style="border: 0" data-modal="add-user-form-modal" data-id="{{ $user->id }}" data-title="{{ $user->employee_id }}" data-description="{{ $user->first_name }}" data-action="view">
+                                        <span class="icon">
+                                            <i data-feather="edit-3"></i>
+                                        </span>
+                                    </a>
+
+                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#add-user-form-modal"
+                                        data-id="{{ $user->id }}" data-title="{{ $user->employee_id }}"
+                                        data-description="{{ $user->first_name }}" data-action="view"
+                                        class="btn btn-info btn-sm"> View </a>
 
 
-                                    <button type="button" class="button h-button" style="border: 0">
+                                    <a href="javascript:void(0);" onclick="deletePost({{$user->id}})" class="button h-button" style="border: 0">
                                         <span class="icon">
                                             <i data-feather="trash-2"></i>
                                         </span>
-                                    </button>
+                                    </a>
+
+                                 
+
                                 </td>
                             </tr>
                         @endforeach

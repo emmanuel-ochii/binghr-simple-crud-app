@@ -145,13 +145,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($user_id)
     {
         $user = UserCrud::where("id", $user_id)->delete();
         if ($user == 1) {
-            return response()->json(["status" => "success", "message" => "Success! user deleted"]);
+            return response()->json(["status" => "success", "message" => "Success! user deleted", "data" => $user]);
         } else {
-            return response()->json(["status" => "failed", "message" => "Alert! user not deleted"]);
+            return response()->json(["status" => "failed", "message" => "Alert! user not deleted", "data" => $user]);
         }
     }
 }
