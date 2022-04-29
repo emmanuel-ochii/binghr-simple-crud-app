@@ -1,6 +1,8 @@
 # BingHR Basic Crud App
 
-![Alt text](/public/img/avatars/placeholder.jpg?raw=true "Optional Title")
+![Alt text](/public/img/readme/dashboard.png?raw=true "Dashboard")
+![Alt text](/public/img/readme/user.png?raw=true " User One")
+![Alt text](/public/img/readme/users.png?raw=true "User Two")
 
 This is a simple task manager application developed with Laravel
 
