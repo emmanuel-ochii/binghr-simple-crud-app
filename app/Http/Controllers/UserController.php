@@ -25,7 +25,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.user');
+        $users = UserCrud::all();
+        return view('users.user', compact('users'));
     }
 
     /**
@@ -57,10 +58,14 @@ class UserController extends Controller
             'password' => 'required|string|min:8|max:122|confirmed',
             'permission' => 'required',
         ]);
-        $input = $request->all();
-        $input['permission'] = $request->input('permission');
-        UserCrud::create($input);
-        return redirect()->route('user.index')->with('success', 'User added successfully.');
+
+        $user = UserCrud::create($request->all());
+
+        if (!is_null($user)) {
+            return response()->json(["status" => "success", "message" => "Success! user created.", "data" => $user]);
+        } else {
+            return response()->json(["status" => "failed", "message" => "Alert! user not created"]);
+        }
     }
 
     /**
@@ -80,9 +85,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(UserCrud $user)
     {
-        //
+        return view('users.user', compact('user'));
     }
 
     /**
@@ -92,9 +97,42 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // $validator = Validator::make($request->all(), [
+        //     'employee_id' => 'required|integer|max:120',
+        // ]);
+
+        // if ($validator->fails()) {
+        //     return response()->json([
+        //         'status'=>400,
+        //         'errors'=>$validator->messages()
+        //     ]);
+        // } else {
+        //     $user = user::find($id);
+        //     if ($user) {
+        //         $user->employee_id = $request->input('employee_id');
+        //         $user->update();
+        //         return response()->json([
+        //             'status'=>200,
+        //             'message'=>'User Updated Successfully. Please Refresh Page'
+        //         ]);
+        //     } else {
+        //         return response()->json([
+        //             'status'=>404,
+        //             'message'=>'No User Found.'
+        //         ]);
+        //     }
+        // }
+
+        $user_id        =       $request->id;
+        $user           =       UserCrud::where("id", $user_id)->update($request->all());
+
+        if ($user == 1) {
+            return response()->json(["status" => "success", "message" => "Success! post updated"]);
+        } else {
+            return response()->json(["status" => "failed", "message" => "Alert! post not updated"]);
+        }
     }
 
     /**
@@ -105,6 +143,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = UserCrud::where("id", $user_id)->delete();
+        if ($user == 1) {
+            return response()->json(["status" => "success", "message" => "Success! user deleted"]);
+        } else {
+            return response()->json(["status" => "failed", "message" => "Alert! user not deleted"]);
+        }
     }
 }

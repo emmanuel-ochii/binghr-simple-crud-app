@@ -9,10 +9,8 @@ This is a simple task manager application developed with Laravel
 
 ## Features
 
-- Create task
-- Edit task
-- Delete task
-- Sweet Alert notification
+- Nice Validation 
+- Notification 
 - Dark and Light mode 
 
 ## Installation

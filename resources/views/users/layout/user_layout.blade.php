@@ -15,6 +15,7 @@
     <!--Core CSS -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+    @stack('styles')
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap"
@@ -24,48 +25,64 @@
 </head>
 
 <style>
-control > ::placeholder{
-    color: #000000;
-}
-*::placeholder{
-    color: #000000;
-    opacity: 1;
-}
-*::-moz-placeholder{
-    color: #000000
-}
-*:-ms-input-placeholder{
-    color: #000000
-}
-.is-submenu{
-    font-size: 14px !important;
-    line-height: 1.5 !important;
-    padding: 7px 0;
-}
-.size{
-    width: 18px !important;
-    height: 15px !important;
-}
-.personal-dashboard.personal-dashboard-v2 .dashboard-header .cta {
-    background: #0395FF !important;
-}
-.action-link{
-    color: #0395FF !important
-}
-.sidebar-panel.is-generic .inner li.is-active a {
-    font-weight: 500;
-    color: #0395FF;
-}
-.modal-header{
-    background-color: #EFF4FA;
-    font-weight: 500;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    border-width: 0 !important;
-}
-.modal-header>tr>th{
-    font-weight: 200 !important;
-}
+    control> ::placeholder {
+        color: #000000;
+    }
+
+    *::placeholder {
+        color: #000000;
+        opacity: 1;
+    }
+
+    *::-moz-placeholder {
+        color: #000000
+    }
+
+    *:-ms-input-placeholder {
+        color: #000000
+    }
+
+    .is-submenu {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        padding: 7px 0;
+    }
+
+    .size {
+        width: 18px !important;
+        height: 15px !important;
+    }
+
+    .personal-dashboard.personal-dashboard-v2 .dashboard-header .cta {
+        background: #0395FF !important;
+    }
+
+    .action-link {
+        color: #0395FF !important
+    }
+
+    .sidebar-panel.is-generic .inner li.is-active a {
+        font-weight: 500;
+        color: #0395FF;
+    }
+
+    .modal-header {
+        background-color: #EFF4FA;
+        font-weight: 500;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        border-width: 0 !important;
+    }
+
+    .modal-header>tr>th {
+        font-weight: 200 !important;
+    }
+
+    .usertable>tr>th {
+        color: #9ea6ad !important;
+        background: #EFF4FA
+    }
+
 </style>
 
 <body>
@@ -244,13 +261,13 @@ control > ::placeholder{
                 </ul>
             </div>
         </div>
-        
+
         <!--Sidebar-->
         <div class="main-sidebar" style="background-color:#0395FF">
             <div class="sidebar-brand">
                 <a href="/">
-                    <img class="light-image" src="{{asset('img/logos/binghr.svg')}}" alt="">
-                    <img class="dark-image" src="{{asset('img/logos/binghr.svg')}}" alt="">
+                    <img class="light-image" src="{{ asset('img/logos/binghr.svg') }}" alt="">
+                    <img class="dark-image" src="{{ asset('img/logos/binghr.svg') }}" alt="">
                 </a>
             </div>
             <div class="sidebar-inner">
@@ -298,8 +315,8 @@ control > ::placeholder{
                     <!-- Profile -->
                     <li id="user-menu">
                         <div id="profile-menu" class="dropdown profile-dropdown dropdown-trigger is-spaced is-up">
-                            <img src="https://via.placeholder.com/150x150"
-                                data-demo-src="img/avatars/photos/8.jpg" alt="">
+                            <img src="https://via.placeholder.com/150x150" data-demo-src="img/avatars/photos/8.jpg"
+                                alt="">
                             <span class="status-indicator"></span>
 
                             <div class="dropdown-menu" role="menu">
@@ -335,8 +352,7 @@ control > ::placeholder{
                                     </a>
                                     <hr class="dropdown-divider">
                                     <div class="dropdown-item is-button">
-                                        <button
-                                            class="button h-button is-primary is-raised is-fullwidth logout-button">
+                                        <button class="button h-button is-primary is-raised is-fullwidth logout-button">
                                             <span class="icon is-small">
                                                 <i data-feather="log-out"></i>
                                             </span>
@@ -378,7 +394,7 @@ control > ::placeholder{
             <div class="inner" data-simplebar>
                 <ul>
                     <li>
-                        <a href="{{route('dashboard')}}" class="is-submenu">
+                        <a href="{{ route('dashboard') }}" class="is-submenu">
                             <i class="lnir lnir-credit-card"></i>
                             <span class="ml-2">Dashboard</span>
                         </a>
@@ -536,7 +552,8 @@ control > ::placeholder{
                             <h1 class="title is-4">Dashboard</h1>
                         </div>
                         <!--Select Year Widget-->
-                        <div class="search-widget is-straight ml-4" style="padding: 0px; background-color:transparent; max-width:fit-content;">
+                        <div class="search-widget is-straight ml-4"
+                            style="padding: 0px; background-color:transparent; max-width:fit-content;">
                             <div class="field">
                                 <div class="select">
                                     <select style="border-color: transparent">
@@ -550,11 +567,14 @@ control > ::placeholder{
                             </div>
                         </div>
                         <!--Top Nav Search Widget-->
-                        <div class="search-widget is-straight ml-4" style="padding: 0px; background-color:transparent; max-width:230px;">
+                        <div class="search-widget is-straight ml-4"
+                            style="padding: 0px; background-color:transparent; max-width:230px;">
                             <div class="field">
                                 <div class="control">
-                                    <input type="text" class="input" placeholder="Search..." style="background:#fff;height: 32px;border-radius:9px;color:rgb(27, 27, 27);font-size:12px">
-                                    <button class="search-button" style="background:transparent;color:rgb(176, 176, 176);padding-top:4px;padding-bottom:14px">
+                                    <input type="text" class="input" placeholder="Search..."
+                                        style="background:#fff;height: 32px;border-radius:9px;color:rgb(27, 27, 27);font-size:12px">
+                                    <button class="search-button"
+                                        style="background:transparent;color:rgb(176, 176, 176);padding-top:4px;padding-bottom:14px">
                                         <i data-feather="search"></i>
                                     </button>
                                 </div>
@@ -571,8 +591,8 @@ control > ::placeholder{
 
                             <div class="dropdown dropdown-trigger">
                                 <div class="is-trigger">
-                                    <button class="button" aria-haspopup="true"
-                                        aria-controls="dropdown-menu" style="background-color:transparent;border-color:transparent">
+                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"
+                                        style="background-color:transparent;border-color:transparent">
                                         <span>Language</span>
                                         <span class="icon is-small">
                                             <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -588,15 +608,15 @@ control > ::placeholder{
                                             German
                                         </a>
                                         <a class="dropdown-item font-size-base">
-                                           Poutugese
+                                            Poutugese
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="dropdown dropdown-trigger">
                                 <div class="is-trigger">
-                                    <button class="button" aria-haspopup="true"
-                                        aria-controls="dropdown-menu" style="background-color:transparent;border-color:transparent">
+                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"
+                                        style="background-color:transparent;border-color:transparent">
                                         <span>Reports</span>
                                         <span class="icon is-small">
                                             <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -616,8 +636,8 @@ control > ::placeholder{
                             </div>
                             <div class="dropdown dropdown-trigger">
                                 <div class="is-trigger">
-                                    <button class="button" aria-haspopup="true"
-                                        aria-controls="dropdown-menu" style="background-color:transparent;border-color:transparent">
+                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"
+                                        style="background-color:transparent;border-color:transparent">
                                         <span>Project</span>
                                         <span class="icon is-small">
                                             <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -633,7 +653,7 @@ control > ::placeholder{
                                             Ongoing
                                         </a>
                                         <a class="dropdown-item font-size-base">
-                                           Finished
+                                            Finished
                                         </a>
                                     </div>
                                 </div>
@@ -663,8 +683,7 @@ control > ::placeholder{
                                                     <h6 class="heading-title">Notifications</h6>
                                                 </div>
                                                 <div class="heading-right">
-                                                    <a class="notification-link"
-                                                        href="">See all</a>
+                                                    <a class="notification-link" href="">See all</a>
                                                 </div>
                                             </div>
                                             <ul class="notification-list">
@@ -756,21 +775,22 @@ control > ::placeholder{
         <!--Load Mapbox-->
 
         <!-- Concatenated plugins -->
-        <script src="{{asset('js/app.js')}}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
 
         <!-- Huro js -->
-        <script src="{{asset('js/functions.js')}}"></script>
-        <script src="{{asset('js/main.js')}}" async></script>
-        <script src="{{asset('js/components.js')}}" async></script>
-        <script src="{{asset('js/popover.js')}}" async></script>
-        <script src="{{asset('js/widgets.js')}}" async></script>
+        <script src="{{ asset('js/functions.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}" async></script>
+        <script src="{{ asset('js/components.js') }}" async></script>
+        <script src="{{ asset('js/popover.js') }}" async></script>
+        <script src="{{ asset('js/widgets.js') }}" async></script>
 
 
         <!-- Additional Features -->
         <script src="js/touch.js" async></script>
+
         @stack('scripts')
 
-        <script src="{{asset('js/syntax.js')}}" async></script>
+        <script src="{{ asset('js/syntax.js') }}" async></script>
     </div>
 </body>
 
