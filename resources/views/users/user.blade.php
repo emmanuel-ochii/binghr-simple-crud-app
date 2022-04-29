@@ -20,32 +20,7 @@
             </div>
         @endif
 
-        <div class="field has-addons is-disabled">
-            <p class="control">
-                <button class="button h-button">
-                    <span class="icon is-small">
-                        <i aria-hidden="true" class="fas fa-download"></i>
-                    </span>
-                    <span>Download</span>
-                </button>
-            </p>
-            <p class="control">
-                <button class="button h-button">
-                    <span class="icon is-small">
-                        <i aria-hidden="true" class="fas fa-upload"></i>
-                    </span>
-                    <span>Update</span>
-                </button>
-            </p>
-            <p class="control">
-                <button class="button h-button">
-                    <span class="icon is-small">
-                        <i aria-hidden="true" class="fas fa-times"></i>
-                    </span>
-                    <span>Remove</span>
-                </button>
-            </p>
-        </div>
+
 
         <div class="buttons">
             <a href="javascript:void(0);" class="button h-button is-primary is-elevated h-modal-trigger"
@@ -56,6 +31,7 @@
                 <span>Add User</span>
             </a>
         </div>
+        {{-- Add User Modal --}}
         <div id="add-user-form-modal" class="modal h-modal is-big">
             <div class="modal-background h-modal-close"></div>
             <div class="modal-content">
@@ -72,6 +48,7 @@
                         </header>
                         <div class="modal-card-body">
                             <div class="inner-content">
+                                <div class="result"></div>
                                 <div class="modal-form">
                                     <div class="columns is-multiline">
                                         <div class="column is-12">
@@ -206,79 +183,91 @@
                                                                 <td>
                                                                     <div class="control">
                                                                         <input type="checkbox" name="permission[]"
-                                                                            id="permission" value="read">
+                                                                            id="permission[]" value="read">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
                                                                         <input type="checkbox" name="permission[]"
-                                                                            id="permission" value="write">
+                                                                            id="permission[]" value="write">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
                                                                         <input type="checkbox" name="permission[]"
-                                                                            id="permission" value="delete">
+                                                                            id="permission[]" value="delete">
                                                                     </div>
                                                                 </td>
                                                             </div>
                                                         </tr>
+
                                                         <tr>
                                                             <div class="field">
                                                                 <td> Admin</td>
                                                                 <td>
                                                                     <div class="control">
-                                                                        <input type="checkbox" checked>
+                                                                        <input type="checkbox"  name="permission_admin[]"
+                                                                        id="permission_admin[]" value="read">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
-                                                                        <input type="checkbox" checked>
+                                                                        <input type="checkbox" name="permission_admin[]"
+                                                                        id="permission_admin[]" value="write">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
-                                                                        <input type="checkbox" checked>
+                                                                        <input type="checkbox" name="permission_admin[]"
+                                                                        id="permission_admin[]" value="delete">
                                                                     </div>
                                                                 </td>
                                                             </div>
                                                         </tr>
+
                                                         <tr>
                                                             <div class="field">
                                                                 <td>Employee</td>
                                                                 <td>
                                                                     <div class="control">
-                                                                        <input type="checkbox" checked>
+                                                                        <input type="checkbox" name="permission_employee[]"
+                                                                        id="permission_employee[]" value="read">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
-                                                                        <input type="checkbox" checked>
+                                                                        <input type="checkbox" name="permission_employee[]"
+                                                                        id="permission_employee[]" value="write">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
-                                                                        <input type="checkbox" checked>
+                                                                        <input type="checkbox" name="permission_employee[]"
+                                                                        id="permission_employee[]" value="delete">
                                                                     </div>
                                                                 </td>
                                                             </div>
                                                         </tr>
+
                                                         <tr>
                                                             <div class="field">
                                                                 <td>HR Admin</td>
                                                                 <td>
                                                                     <div class="control">
-                                                                        <input type="checkbox" checked>
+                                                                        <input type="checkbox" name="permission_hr[]"
+                                                                        id="permission_hr[]" value="read">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
-                                                                        <input type="checkbox" checked>
+                                                                        <input type="checkbox" name="permission_hr[]"
+                                                                        id="permission_hr[]" value="write">
                                                                     </div>
                                                                 </td>
                                                                 <td>
                                                                     <div class="control">
-                                                                        <input type="checkbox" checked>
+                                                                        <input type="checkbox" name="permission_hr[]"
+                                                                        id="permission_hr[]" value="delete">
                                                                     </div>
                                                                 </td>
                                                             </div>
@@ -299,6 +288,17 @@
                         <button type="submit" class="button h-button is-primary is-raised is-rounded"
                             style="box-shadow:none;background:#0395FF" id="createBtn">Add User</button>
                         <button type="button" class="button h-button is-rounded h-modal-close">Cancel</button>
+
+                        @if ($errors->any())
+                            <div class="message is-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -310,8 +310,10 @@
 
         <!-- Datatable -->
         <div class="table-wrapper" data-simplebar>
+            <h3 class="list-users px-6 py-5">List Users</h3>
+
             <table id="" class="table is-datatable is-hoverable table-is-bordered">
-                <thead>
+                <thead class="usertable">
                     <tr>
                         <th>Name</th>
                         <th style="width: fit-content"></th>
@@ -393,6 +395,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    `
+
     <script src="{{ asset('js/ajax.js') }}"></script>
 @endpush

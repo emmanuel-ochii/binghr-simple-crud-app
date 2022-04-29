@@ -25,22 +25,6 @@
 </head>
 
 <style>
-    control> ::placeholder {
-        color: #000000;
-    }
-
-    *::placeholder {
-        color: #000000;
-        opacity: 1;
-    }
-
-    *::-moz-placeholder {
-        color: #000000
-    }
-
-    *:-ms-input-placeholder {
-        color: #000000
-    }
 
     .is-submenu {
         font-size: 14px !important;
@@ -72,6 +56,11 @@
         padding-top: 25px;
         padding-bottom: 25px;
         border-width: 0 !important;
+    }
+
+    .list-users{
+        font-size: 23px;
+        font-weight: 500
     }
 
     .modal-header>tr>th {

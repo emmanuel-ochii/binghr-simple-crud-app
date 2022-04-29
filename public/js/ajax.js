@@ -13,6 +13,7 @@ $("#createBtn").click(function (event) {
 
     let employee_id = $("#employee_id").val();
     let first_name = $("#first_name").val();
+    console.log("we got here");
     let last_name = $("#last_name").val();
     let email_id = $("#email_id").val();
     let mobile_no = $("#mobile_no").val();
@@ -20,65 +21,61 @@ $("#createBtn").click(function (event) {
     let username = $("#username").val();
     let password = $("#password").val();
     let permission = $("#permission").val();
+    let permission_admin = $("#permission_admin").val();
+    let permission_employee = $("#permission_employee").val();
+    let permission_hr = $("#permission_hr").val();
 
     if (employee_id == "") {
         $("#employee_id").after(
-            '<span class="text-danger error"> employee_id is required </span>'
+            '<span class="text-danger error"> Employee ID is required </span>'
         );
     }
 
     if (first_name == "") {
         $("#first_name").after(
-            '<span class="text-danger error"> first_name is required </span>'
+            '<span class="text-danger error"> First Name is required </span>'
         );
-        return false;
     }
 
     if (last_name == "") {
         $("#last_name").after(
             '<span class="text-danger error"> last_name is required </span>'
         );
-        return false;
     }
 
     if (email_id == "") {
         $("#email_id").after(
             '<span class="text-danger error"> email_id is required </span>'
         );
-        return false;
     }
 
     if (mobile_no == "") {
         $("#mobile_no").after(
             '<span class="text-danger error"> mobile_no is required </span>'
         );
-        return false;
     }
 
     if (role_type == "") {
         $("#role_type").after(
             '<span class="text-danger error"> role_type is required </span>'
         );
-        return false;
     }
 
     if (username == "") {
         $("#username").after(
             '<span class="text-danger error"> username is required </span>'
         );
-        return false;
     }
 
     if (password == "") {
         $("#password").after(
             '<span class="text-danger error"> password is required </span>'
         );
-        return false;
     }
 
     if (permission == "") {
         $("#permission").after(
-            '<span class="text-danger error"> permission is required </span>'
+            '<span class="text-danger error"> Permission is required </span>'
         );
         return false;
     }
@@ -115,15 +112,21 @@ function createPost(form_data) {
 
             if (res.status == "success") {
                 $(".result").html(
-                    "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button>" +
-                        res.message +
-                        "</div>"
+                    `<div class="message is-success">
+                        <div class="message-body">
+                          ${res.message}
+
+                        </div>
+                    </div>`
                 );
             } else if (res.status == "failed") {
                 $(".result").html(
-                    "<div class='alert alert-danger alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button>" +
-                        res.message +
-                        "</div>"
+                    `<div class="message is-danger">
+                        <div class="message-body">
+                          ${res.message}
+
+                        </div>
+                    </div>`
                 );
             }
         },
@@ -149,15 +152,22 @@ function updatePost(form_data) {
 
             if (res.status == "success") {
                 $(".result").html(
-                    "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button>" +
-                        res.message +
-                        "</div>"
+
+                    `<div class="message is-success">
+                        <div class="message-body">
+                          ${res.message}
+
+                        </div>
+                    </div>`
                 );
             } else if (res.status == "failed") {
                 $(".result").html(
-                    "<div class='alert alert-danger alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button>" +
-                        res.message +
-                        "</div>"
+                    `<div class="message is-danger">
+                        <div class="message-body">
+                          ${res.message}
+
+                        </div>
+                    </div>`
                 );
             }
         },
@@ -192,12 +202,18 @@ function deletePost(user_id) {
     }
 }
 
-$("#addPostModal").on("shown.bs.modal", function (e) {
+$("#add-user-form-modal").on("shown.bs.modal", function (e) {
     var id = $(e.relatedTarget).data("id");
     var employee_id = $(e.relatedTarget).data("employee_id");
     var first_name = $(e.relatedTarget).data("first_name");
+    var last_name = $(e.relatedTarget).data("last_name");
+    var email_id = $(e.relatedTarget).data("email_id");
+    var mobile_no = $(e.relatedTarget).data("mobile_no");
+    var role_type = $(e.relatedTarget).data("role_type");
+    var username = $(e.relatedTarget).data("username");
+    var password = $(e.relatedTarget).data("password");
+    var permission = $(e.relatedTarget).data("permission");
     var action = $(e.relatedTarget).data("action");
-    
 
     console.log(employee_id, "id");
 
@@ -212,6 +228,12 @@ $("#addPostModal").on("shown.bs.modal", function (e) {
 
             $("#first_name").attr("readonly", "true");
             $("#first_name").val(first_name);
+
+            $("#last_name").attr("readonly", "true");
+            $("#last_name").val(last_name);
+
+            $("#email_id").attr("readonly", "true");
+            $("#email_id").val(email_id);
 
             // hide button
             $("#createBtn").addClass("d-none");

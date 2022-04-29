@@ -24,6 +24,9 @@ class CreateUserCrudsTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('permission');
+            $table->string('permission_admin');
+            $table->string('permission_employee');
+            $table->string('permission_hr');
             $table->timestamps();
         });
     }

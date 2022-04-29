@@ -57,6 +57,10 @@ class UserController extends Controller
             'username' => 'required|string|max:122',
             'password' => 'required|string|min:8|max:122|confirmed',
             'permission' => 'required',
+            'permission_admin' => 'required',
+            'permission_employee' => 'required',
+            'permission_hr' => 'required',
+
         ]);
 
         $user = UserCrud::create($request->all());
