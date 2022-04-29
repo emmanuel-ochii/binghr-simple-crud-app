@@ -213,6 +213,9 @@ $("#add-user-form-modal").on("shown.bs.modal", function (e) {
     var username = $(e.relatedTarget).data("username");
     var password = $(e.relatedTarget).data("password");
     var permission = $(e.relatedTarget).data("permission");
+    var permission_admin = $(e.relatedTarget).data("permission_admin");
+    var permission_employee = $(e.relatedTarget).data("permission_employee");
+    var permission_hr = $(e.relatedTarget).data("permission_hr");
     var action = $(e.relatedTarget).data("action");
 
     console.log(employee_id, "id");

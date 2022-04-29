@@ -360,6 +360,9 @@
                                         </span>
                                     </button>
 
+                                    {{-- <a href="javascript:void(0);" data-toggle="modal" data-target="#addPostModal" data-id="{{$user->id}}" data-title="{{$user->employee_id}}" data-description="{{$user->first_name}}" data-action="view" class="btn btn-info btn-sm"> View </a> --}}
+
+
                                     <button type="button" class="button h-button" style="border: 0">
                                         <span class="icon">
                                             <i data-feather="trash-2"></i>
