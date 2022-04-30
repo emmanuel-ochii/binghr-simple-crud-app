@@ -1,4 +1,3 @@
-
 // Pass csrf token in ajax header
 $.ajaxSetup({
     headers: {
@@ -14,7 +13,6 @@ $("#createBtn").click(function (event) {
 
     let employee_id = $("#employee_id").val();
     let first_name = $("#first_name").val();
-    console.log("we got here");
     let last_name = $("#last_name").val();
     let email_id = $("#email_id").val();
     let mobile_no = $("#mobile_no").val();
@@ -93,7 +91,9 @@ $("#createBtn").click(function (event) {
         createPost(form_data);
     }
 });
-
+function timeout() {
+    timeout = setTimeout(function(){console.log('Success!!!')}, 3000);
+}
 // create new user
 function createPost(form_data) {
     $.ajax({
@@ -116,10 +116,11 @@ function createPost(form_data) {
                     `<div class="message is-success">
                         <div class="message-body">
                           ${res.message}
-
                         </div>
                     </div>`
                 );
+                timeout();
+                window.location.href = "/user";
             } else if (res.status == "failed") {
                 $(".result").html(
                     `<div class="message is-danger">
@@ -178,7 +179,6 @@ function updatePost(form_data) {
 function deletePost(user_id) {
     var status = confirm("Do you want to delete this user?");
 
-
     if (status == true) {
         $.ajax({
             url: "user/" + user_id,
@@ -193,10 +193,9 @@ function deletePost(user_id) {
                     notyf.error({
                         message: res.message,
                         duration: 9000,
-                        icon: false
+                        icon: false,
                     });
                     window.location.href = "/user";
-
                 } else if (res.status == "failed") {
                     $("#result").html(
                         "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button>" +
