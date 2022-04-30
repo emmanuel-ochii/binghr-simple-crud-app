@@ -366,11 +366,6 @@
                                         </span>
                                     </a>
 
-                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#add-user-form-modal"
-                                        data-id="{{ $user->id }}" data-title="{{ $user->employee_id }}"
-                                        data-description="{{ $user->first_name }}" data-action="view"
-                                        class="btn btn-info btn-sm"> View </a>
-
 
                                     <a href="javascript:void(0);" onclick="deletePost({{$user->id}})" class="button h-button" style="border: 0">
                                         <span class="icon">

@@ -1,3 +1,4 @@
+
 // Pass csrf token in ajax header
 $.ajaxSetup({
     headers: {
@@ -177,6 +178,7 @@ function updatePost(form_data) {
 function deletePost(user_id) {
     var status = confirm("Do you want to delete this user?");
 
+
     if (status == true) {
         $.ajax({
             url: "user/" + user_id,
@@ -190,10 +192,11 @@ function deletePost(user_id) {
 
                     notyf.error({
                         message: res.message,
-                        duration: 5000,
-                        icon: false,
+                        duration: 9000,
+                        icon: false
                     });
                     window.location.href = "/user";
+
                 } else if (res.status == "failed") {
                     $("#result").html(
                         "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button>" +
