@@ -15,18 +15,11 @@ use App\Http\Controllers\UserController;
 */
 
 
-Route::get('/', [UserController::class,'dashboard'])->name('dashboard');
+Route::get('/dashboard', [UserController::class,'dashboard'])->name('dashboard');
 
-// Route::resource('user', UserController::class);
-
-// Route::get('/user', 'UserCrudController@view')->name('user.index');
-// Route::get('/companies', 'UserCrudController@get_user_data')->name('data');
-// Route::get('/addUser', 'UserCrudController@view')->name('user.view');
-// Route::post('/addUser', 'UserCrudController@Store')->name('user.store');
-// Route::get('/addUser/{id}/edit', 'UserCrudController@update')->name('user.update');
-// Route::delete('/addUser/{id}', 'UserCrudController@destroy')->name('user.destroy');
 
 Route::get('/user', [UserController::class, 'index'])->name('user.index');
+Route::get('/', [UserController::class, 'index']);
 
 Route::post('/user', [UserController::class, 'store'])->name('user.store');
 

@@ -79,7 +79,7 @@ $("#createBtn").click(function (event) {
         return false;
     }
 
-    var form_data = $("#postForm").serialize();
+    let form_data = $("#postForm").serialize();
 
     // if user id exist
     if ($("#id_hidden").val() != "") {
