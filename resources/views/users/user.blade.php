@@ -378,20 +378,19 @@
                                         </span>
                                     </a>
 
-                                 
 
                                 </td>
                             </tr>
-                        @endforeach
-                    @else
-                        <div class="content mx-auto" style="width: 50%; text-align:center">
-                            <blockquote>
-                                <p>Oops !! No user details available.</p>
-                            </blockquote>
-                        </div>
-                    @endif
-                </tbody>
-            </table>
+                            @endforeach
+                            @else
+                            <div class="content mx-auto" style="width: 50%; text-align:center">
+                                <blockquote>
+                                    <p>Oops !! No user details available.</p>
+                                </blockquote>
+                            </div>
+                            @endif
+                        </tbody>
+                    </table>
 
         </div>
 
@@ -412,4 +411,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <script src="{{ asset('js/ajax.js') }}"></script>
+
 @endpush
