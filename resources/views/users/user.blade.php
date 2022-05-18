@@ -42,7 +42,7 @@
 
                         <header class="modal-card-head">
                             <h3>Add User</h3>
-                            <button class="h-modal-close ml-auto" aria-label="close">
+                            <button type="button" class="h-modal-close ml-auto" aria-label="close">
                                 <i data-feather="x"></i>
                             </button>
                         </header>
