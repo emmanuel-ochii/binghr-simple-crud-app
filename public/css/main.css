@@ -25092,6 +25092,7 @@ body.is-dark .sidebar-panel .inner {
 .sidebar-panel.is-generic .inner li.is-active a {
     font-weight: 500;
     color: #671cc9;
+    border-right: 2px solid #3CA2FF;
 }
 .sidebar-panel.is-generic .inner li.is-active > a {
     font-weight: 600;
@@ -25245,7 +25246,7 @@ body.is-dark .sidebar-panel .inner {
     color: #a2a5b9;
 }
 .sidebar-panel.is-generic .inner li a:hover {
-    color: #283252;
+    color: #3e3e43;
 }
 .sidebar-panel.is-generic .inner li > a {
     font-family: "Montserrat", sans-serif;

@@ -309,8 +309,73 @@
     <div class="page-content-inner">
 
         <!-- Datatable -->
-        <div class="table-wrapper" data-simplebar>
-            <h3 class="list-users px-6 py-5">List Users</h3>
+        <div class="table-wrapper " data-simplebar>
+            <div class="column is-12">
+                <div class=" column is-6">
+                    <h3 class="list-users px-6 py-5">List Users</h3>
+                </div>
+                <!--list user Search Widget-->
+                <div class="search-widget ml-4 column is-6"
+                    style="padding: 0px; background-color:transparent; max-width:230px;">
+                    <div class="field">
+                        <div class="control">
+                            <input type="text" class="input" placeholder="Search..."
+                                style="background:#fff;height: 32px;border-radius:9px;color:rgb(27, 27, 27);font-size:12px">
+                            <button class="search-button"
+                                style="background:transparent;color:rgb(176, 176, 176);padding-top:4px;padding-bottom:14px">
+                                <i data-feather="search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="field">
+                        <div class="control">
+                            <div class="h-select" onchange="showfield()">
+                                <div class="select-box">
+                                    <span> </span>
+                                </div>
+                                <div class="select-icon">
+                                    <i data-feather="chevron-down"></i>
+                                </div>
+                                <div class="select-drop has-slimscroll-sm">
+                                    <div class="drop-inner">
+                                        <div class="option-row">
+                                            <input type="radio" name="role_type" id="role_type"
+                                                value="Super Admin">
+                                            <div class="option-meta">
+                                                <span>Super Admin</span>
+                                            </div>
+                                        </div>
+                                        <div class="option-row">
+                                            <input type="radio" name="role_type" id="role_type"
+                                                value="Admin">
+                                            <div class="option-meta">
+                                                <span>Admin</span>
+                                            </div>
+                                        </div>
+                                        <div class="option-row">
+                                            <input type="radio" name="role_type" id="role_type"
+                                                value="Employee">
+                                            <div class="option-meta">
+                                                <span>Employee</span>
+                                            </div>
+                                        </div>
+                                        <div class="option-row">
+                                            <input type="radio" name="role_type" id="role_type"
+                                                value="HR Admin">
+                                            <div class="option-meta">
+                                                <span>HR Admin</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
             <table id="" class="table is-datatable is-hoverable table-is-bordered">
                 <thead class="usertable">
@@ -360,14 +425,18 @@
                                         </span>
                                     </a> --}}
 
-                                    <a href="javascript:void(0);" class="button h-button h-modal-trigger" style="border: 0" data-modal="add-user-form-modal" data-id="{{ $user->id }}" data-title="{{ $user->employee_id }}" data-description="{{ $user->first_name }}" data-action="view">
+                                    <a href="javascript:void(0);" class="button h-button h-modal-trigger" style="border: 0"
+                                        data-modal="add-user-form-modal" data-id="{{ $user->id }}"
+                                        data-title="{{ $user->employee_id }}"
+                                        data-description="{{ $user->first_name }}" data-action="view">
                                         <span class="icon">
                                             <i data-feather="edit-3"></i>
                                         </span>
                                     </a>
 
 
-                                    <a href="javascript:void(0);" onclick="deletePost({{$user->id}})" class="button h-button" style="border: 0">
+                                    <a href="javascript:void(0);" onclick="deletePost({{ $user->id }})"
+                                        class="button h-button" style="border: 0">
                                         <span class="icon">
                                             <i data-feather="trash-2"></i>
                                         </span>
@@ -376,16 +445,16 @@
 
                                 </td>
                             </tr>
-                            @endforeach
-                            @else
-                            <div class="content mx-auto" style="width: 50%; text-align:center">
-                                <blockquote>
-                                    <p>Oops !! No user details available.</p>
-                                </blockquote>
-                            </div>
-                            @endif
-                        </tbody>
-                    </table>
+                        @endforeach
+                    @else
+                        <div class="content mx-auto" style="width: 50%; text-align:center">
+                            <blockquote>
+                                <p>Oops !! No user details available.</p>
+                            </blockquote>
+                        </div>
+                    @endif
+                </tbody>
+            </table>
 
         </div>
 
@@ -406,5 +475,4 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <script src="{{ asset('js/ajax.js') }}"></script>
-
 @endpush

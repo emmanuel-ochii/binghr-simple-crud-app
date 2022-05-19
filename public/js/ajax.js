@@ -5,6 +5,7 @@ $.ajaxSetup({
     },
 });
 
+
 //----- [ button click function ] ----------
 $("#createBtn").click(function (event) {
     event.preventDefault();
@@ -91,6 +92,11 @@ $("#createBtn").click(function (event) {
         createPost(form_data);
     }
 });
+function showfield(){
+    console.log('value here: ',  $('.select-box').text());
+
+    )
+}
 function timeout() {
     timeout = setTimeout(function(){console.log('Success!!!')}, 3000);
 }
@@ -208,6 +214,9 @@ function deletePost(user_id) {
     }
 }
 
+
+
+
 $("#add-user-form-modal").on("shown.bs.modal", function (e) {
     var id = $(e.relatedTarget).data("id");
     var employee_id = $(e.relatedTarget).data("employee_id");
@@ -278,4 +287,5 @@ $("#add-user-form-modal").on("shown.bs.modal", function (e) {
         // hide button
         $("#createBtn").removeClass("d-none");
     }
+
 });

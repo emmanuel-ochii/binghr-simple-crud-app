@@ -154,4 +154,9 @@ class UserController extends Controller
             return response()->json(["status" => "failed", "message" => "Alert! user not deleted", "data" => $user]);
         }
     }
+
+    public function sortingRole(Request $request)
+    {
+        $role=UserCrud::all;
+    }
 }
