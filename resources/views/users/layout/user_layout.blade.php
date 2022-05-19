@@ -354,9 +354,17 @@
                     </li>
                     <!-- Notifications -->
                     <li class="right-panel-trigger">
-                        <a href="">
-                            <i class="sidebar-svg" data-feather="align-left"></i>
-                        </a>
+                        <div class="huro-hamburger nav-trigger push-resize" data-sidebar="home-sidebar">
+                            <span class="menu-toggle has-chevron">
+                                <span class="icon-box-toggle">
+                                    <span class="rotate" >
+                                        <i class="icon-line-top" style="background: #dcdcdc; !important"></i>
+                                        <i class="icon-line-center" style="background: #dcdcdc; !important"></i>
+                                        <i class="icon-line-bottom" style="background: #dcdcdc; !important"></i>
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
                     </li>
                 </ul>
             </div>
